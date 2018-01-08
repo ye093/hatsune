@@ -144,12 +144,12 @@ public class ConfigurationService extends Service {
     }
 
     private void restartApp() {
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Utils.restartApp(ConfigurationService.this);
-            }
-        }, 3000);
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Utils.restartApp(ConfigurationService.this);
+//            }
+//        }, 3000);
     }
 
     private void toastLong(final String message) {

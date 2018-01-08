@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">hatsune</string>
+
+    <string name="new_message">热点资讯</string>
+    <string name="open_indicate">开奖公告</string>
+    <string name="mine_ticket">彩票新闻</string>
+
 </resources>
