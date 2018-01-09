@@ -1,10 +1,12 @@
 package com.hatsune;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -91,7 +93,10 @@ public class ActivityNative extends AppCompatActivity {
             imageView.setImageResource(NORMAL_ICONS[position]);
             textView.setTextColor(normalColor);
         }
-        tabContainer.addView(view, position);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT,
+                1.0f);
+
+        tabContainer.addView(view, position, params);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,11 +119,22 @@ public class ActivityNative extends AppCompatActivity {
             textView.setTextColor(normalColor);
         }
         View view = tabContainer.getChildAt(position);
+        tabContainer.setTag(position);
         ImageView imageView = (ImageView) view.findViewById(R.id.tabImage);
         TextView textView = (TextView) view.findViewById(R.id.tabText);
         imageView.setImageResource(SELECTED_ICONS[position]);
         textView.setTextColor(selectColor);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this).setTitle("提示")
+                .setMessage("确定要退出吗？")
+                .setPositiveButton("退出", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                }).setNegativeButton("取消", null).create().show();
+    }
 }

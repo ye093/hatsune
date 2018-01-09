@@ -25,4 +25,9 @@ public class CodeHistoryActivity extends AppCompatActivity {
                         .commit();
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

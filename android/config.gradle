@@ -1,7 +1,7 @@
 ext {
     app = [
             "applicationId"       : 'com.cp.kosun',
-            "versionCode"         : 5,
+            "versionCode"         : 6,
             "CODE_PUSH_SERVER_URL": "",
             "CODE_PUSH_KEY"       : "",
             'UMENG_APPKEY'        : "",
